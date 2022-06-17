@@ -1,0 +1,17 @@
+.signup__bg--container{
+    background-image: url('../images/banner-signup.png');
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 90vh;
+}
+
+.signup__form{
+    width: 80%;
+    margin: 100px 0px;
+}
+
+.link__style{
+    color: #212529;
+    text-decoration: none;
+}

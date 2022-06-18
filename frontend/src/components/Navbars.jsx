@@ -1,39 +1,55 @@
 import React from "react";
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Container, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { useSelector } from "react-redux";
 
 const Navbars = () => {
+  const { user } = useSelector((state) => state.user);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  }
+
   return (
-    <Navbar bg="dark" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
         <LinkContainer to="/">
-          <Navbar.Brand className="text-white">Bhinneka Academy</Navbar.Brand>
+          <Navbar.Brand>Bhinneka Academy</Navbar.Brand>
         </LinkContainer>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <LinkContainer to="/">
-              <Nav.Link className="text-white">Home</Nav.Link>
+              <Nav.Link>Home</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/about">
-              <Nav.Link className="text-white">About</Nav.Link>
+              <Nav.Link>About</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/login">
               <Nav.Link className="btn btn-danger text-white">Login</Nav.Link>
             </LinkContainer>
 
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            {user && (
+              <NavDropdown
+                title={user.email}
+                id="basic-nav-dropdown"
+              >
+                <LinkContainer to="/new-article">
+                  <NavDropdown.Item>Artikel Baru</NavDropdown.Item>
+                </LinkContainer>
+
+                <LinkContainer to="/my-articles">
+                  <NavDropdown.Item>Artikel Saya</NavDropdown.Item>
+                </LinkContainer>
+
+                <NavDropdown.Divider />
+                <NavDropdown.Item>
+                  <Button onClick={handleLogout} variant="outline-danger">Keluar</Button>
+                </NavDropdown.Item>
+              </NavDropdown>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

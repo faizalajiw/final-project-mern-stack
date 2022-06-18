@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const User = require("../models/User");
+const authUser = require("../middleware/auth");
 
 // handle user creation
 router.post("/", async (req, res) => {
@@ -7,9 +8,9 @@ router.post("/", async (req, res) => {
 
   try {
     const user = await User.create({ email, password });
-    console.log(user);
-    await user.generateAuthToken();
-    res.status(201).json(user);
+    const token = await user.generateAuthToken();
+    res.status(201).json({user, token});
+    
   } catch (err) {
     let msg;
     if (err.code === 11000) {
@@ -26,11 +27,25 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findByCredentials(email, password);
-    await user.generateAuthToken();
-    res.json(user);
+    const token = await user.generateAuthToken();
+
+    res.json({user, token});
   } catch (err) {
     res.status(400).json(err.message);
   }
 });
+
+// Logout user
+router.delete("/logout", authUser, async (req, res) => {
+  try {
+    req.user.tokens = req.user.tokens.filter(tokenObj => {
+      return tokenObj.token !== req.token;
+    })
+    await req.user.save();
+    res.status(200).send();
+  } catch (err) {
+    res.status(400).json(err.message);
+  }
+})
 
 module.exports = router;

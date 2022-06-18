@@ -19,7 +19,10 @@ const UserSchema = new mongoose.Schema({
 
   tokens: [],
 
-  articles: [],
+  articles: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "BlogPost"
+  }],
 });
 
 // hashing password
@@ -46,7 +49,7 @@ UserSchema.methods.generateAuthToken = async function () {
   console.log(token);
   user.tokens = user.tokens.concat({ token });
   await user.save();
-  return;
+  return token;
 };
 
 // mencari user berdasarkan email

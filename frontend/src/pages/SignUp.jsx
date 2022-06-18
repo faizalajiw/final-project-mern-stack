@@ -1,20 +1,23 @@
 import React, { useState } from "react";
 import { Container, Col, Row, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import "./SignUp.css";
+import { useSignupUserMutation } from "../features/api/apiSlice";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [signupUser, { data }] = useSignupUserMutation();
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:5000/users", { email, password })
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
+    signupUser({ email, password });
   };
+
+  if (data) {
+    console.log(data);
+  }
 
   return (
     <Container>

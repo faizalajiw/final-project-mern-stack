@@ -2,6 +2,7 @@ const router = require("express").Router();
 const BlogPost = require("../models/BlogPost");
 const authUser = require("../middleware/auth");
 
+// POST ARTICLE
 router.post("/", authUser, async (req, res) => {
   const { title, content, image } = req.body;
   try {
@@ -17,3 +18,15 @@ router.post("/", authUser, async (req, res) => {
     res.status(400).json(err.message);
   }
 });
+
+// GET ALL ARTICLES
+router.get("/", async (req, res) => {
+  try {
+    const posts = await BlogPost.find();
+    res.json(posts);
+  } catch (err) {
+    res.status(400).json(err.message);
+  }
+})
+
+module.exports = router;

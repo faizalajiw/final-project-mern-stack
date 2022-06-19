@@ -13,20 +13,23 @@ const BlogPostSchema = mongoose.Schema({
     required: true,
   },
   title: {
-    type: string,
+    type: 'string',
+    required: true,
+  },
+  content: {
+    type: 'string',
     required: true,
   },
   image: {
-    type: string,
+    type: 'string',
     required: true,
   },
   category: {
-    type: string,
-    required: true,
+    type: 'string',
+    default: 'others',
   },
-
   created_at: {
-    type: string,
+    type: 'string',
     default: new Date().toLocaleDateString("en-US"),
   },
 });

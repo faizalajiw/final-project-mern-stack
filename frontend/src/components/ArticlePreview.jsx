@@ -11,9 +11,9 @@ const ArticlePreview = ({ article }) => {
       <Card.Img
         variant="top"
         src={image || `https://res.cloudinary.com/drpf1nmjx/image/upload/v1655622820/banner-preview_agdxpp.png`}
-        style={{ maxHeight: 200, objectFit: "cover" }}
+        style={{ width: "100%", height: "15vw", objectFit: "cover" }}
       />
-      <Card.Body>
+      <Card.Body className="d-flex flex-column">
         <Card.Title>{title}</Card.Title>
         <Card.Text>
           <div
@@ -24,7 +24,7 @@ const ArticlePreview = ({ article }) => {
         </Card.Text>
 
         <LinkContainer to={`/articles/${_id}`}>
-          <Button variant="primary">Lihat</Button>
+          <Button variant="outline-info" className="mt-auto">Lihat</Button>
         </LinkContainer>
       </Card.Body>
     </Card>

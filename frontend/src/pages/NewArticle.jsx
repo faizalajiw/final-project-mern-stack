@@ -5,7 +5,6 @@ import { EditorState, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import { Editor } from "@tinymce/tinymce-react";
 import { useCreatePostMutation } from "../features/api/apiSlice";
-import "./NewArticle.css";
 
 const NewArticle = () => {
   const [title, setTitle] = useState("");

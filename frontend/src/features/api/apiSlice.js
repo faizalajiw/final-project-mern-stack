@@ -12,10 +12,10 @@ export const apiSlice = createApi({
       return headers;
     },
   }),
-  endpoints: (builder) => ({
+  endpoints: builder => ({
     // user signup
     signupUser: builder.mutation({
-      query: (user) => ({
+      query: user => ({
         url: "/users",
         method: "POST",
         body: user,
@@ -24,7 +24,7 @@ export const apiSlice = createApi({
 
     // user login
     loginUser: builder.mutation({
-      query: (user) => ({
+      query: user => ({
         url: "/users/login",
         method: "POST",
         body: user,
@@ -38,8 +38,28 @@ export const apiSlice = createApi({
     //     method: "DELETE",
     //   }),
     // }),
+
+    // post routes
+    createPost: builder.mutation({
+      query: article => ({
+        url: "/posts",
+        method: "POST",
+        body: article,
+      }),
+    }),
+
+    getAllPosts: builder.query({
+      query: () => ({
+        url: "/posts",
+      })
+    })
   }),
 });
 
-export const { useSignupUserMutation, useLoginUserMutation } = apiSlice;
+export const {
+  useSignupUserMutation,
+  useLoginUserMutation,
+  useCreatePostMutation,
+  useGetAllPostsQuery,
+} = apiSlice;
 export default apiSlice;

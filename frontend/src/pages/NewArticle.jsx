@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { Container, Row, Col, Form, Button, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { EditorState, convertToRaw } from "draft-js";
+import { Editor } from "react-draft-wysiwyg";
+// import { Editor } from "@tinymce/tinymce-react";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import draftToHtml from "draftjs-to-html";
-import { Editor } from "@tinymce/tinymce-react";
 import { useCreatePostMutation } from "../features/api/apiSlice";
+import './NewArticle.css';
 
 const NewArticle = () => {
   const [title, setTitle] = useState("");
@@ -94,21 +97,24 @@ const NewArticle = () => {
         <Col md={7}>
           <Form onSubmit={handlePublish}>
             <Form.Group className="mb-3">
-              <Form.Label>Title</Form.Label>
+              <Form.Label></Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Your Title"
+                placeholder="Judul Artikel"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
             </Form.Group>
 
             <Editor
-              // dibawah ini API TinyCME milik saya
-              apiKey="3ituox0mhf6744v1cssbp9py7w78zb1crdziktkpadi43sfu"
               stripPastedStyles={true}
               editorState={editorState}
               onEditorStateChange={handleEditorChange}
+              wrapperClassName="wrapper mb-4"
+              editorClassName="editor"
+              toolbarClassName="toolbar"
+              // // dibawah ini API TinyCME milik saya
+              // // apiKey="3ituox0mhf6744v1cssbp9py7w78zb1crdziktkpadi43sfu"
             />
 
             <Form.Select>

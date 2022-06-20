@@ -38,7 +38,7 @@ router.post("/login", async (req, res) => {
 // Logout user
 router.delete("/logout", authUser, async (req, res) => {
   try {
-    req.user.tokens = req.user.tokens.filter(tokenObj => {
+    req.user.tokens = req.user.tokens.filter((tokenObj) => {
       return tokenObj.token !== req.token;
     })
     await req.user.save();

@@ -2,14 +2,24 @@ import React from "react";
 import { Navbar, Nav, NavDropdown, Container, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useSelector } from "react-redux";
+import { useLogoutUserMutation } from "../features/api/apiSlice";
 
 const Navbars = () => {
   const { user } = useSelector((state) => state.user);
+  const [logoutUser] = useLogoutUserMutation();
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.reload();
+  function handleLogout () {
+    logoutUser().then(({error}) => {
+      if (!error) {
+        console.log("berhasil logout");
+      }
+    })
   }
+  
+  // const handleLogout = () => {
+  //   localStorage.removeItem("token");
+  //   window.location.reload();
+  // }
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">

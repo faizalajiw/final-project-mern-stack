@@ -23,10 +23,10 @@ export const userSlice = createSlice({
       }
     );
 
-    // builder.addMatcher(apiSlice.endpoints.logout.matchFulfilled, (state) => {
-    //   delete state.user;
-    //   delete state.token;
-    // });
+    builder.addMatcher(apiSlice.endpoints.logoutUser.matchFulfilled, (state) => {
+      delete state.user;
+      delete state.token;
+    });
   },
 });
 

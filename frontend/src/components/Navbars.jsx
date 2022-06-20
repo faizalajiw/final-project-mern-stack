@@ -40,7 +40,7 @@ const Navbars = () => {
                   <NavDropdown.Item>Artikel Baru</NavDropdown.Item>
                 </LinkContainer>
 
-                <LinkContainer to="/my-articles">
+                <LinkContainer to="/articles/me">
                   <NavDropdown.Item>Artikel Saya</NavDropdown.Item>
                 </LinkContainer>
 

@@ -7,7 +7,7 @@ import { LinkContainer } from "react-router-bootstrap";
 
 const Home = () => {
   const { data: articles, isLoading, isError } = useGetAllPostsQuery();
-  const sidebarArticles = articles?.slice(0, 4) || [];
+  const sidebarArticles = articles?.slice(0, 10) || [];
 
   if (isError) {
     return (

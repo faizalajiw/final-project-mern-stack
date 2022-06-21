@@ -12,7 +12,7 @@ import "./NewArticle.css";
 function EditArticle() {
   const { id } = useParams();
   // NOTE: useSelector() dipake buat ngambil data article dari redux store
-  const posts = useSelector((state) => state.post);
+  const posts = useSelector((state) => state.posts);
   // NOTE : find() dipake buat ngambil data article dari array posts
   const postToEdit = posts.find((post) => post._id === id);
   const [updateArticle, { isLoading, isSuccess }] = useUpdatePostMutation();

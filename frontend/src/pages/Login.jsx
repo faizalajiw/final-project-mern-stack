@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { Container, Col, Row, Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-// import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useLoginUserMutation } from "../features/api/apiSlice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginUser, { data }] = useLoginUserMutation();
+  const navigate = useNavigate();
+  const [loginUser, { isLoading, isError, error }] = useLoginUserMutation();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    loginUser({ email, password });
+    loginUser({ email, password }).then(({error}) => {
+      if(!error) {
+        navigate("/");
+      }
+    })
   };
-
-  if (data) {
-    console.log(data);
-  }
 
   return (
     <Container>
@@ -25,8 +25,10 @@ const Login = () => {
         <Col md={6}>
           <Form className="login__form" onSubmit={handleLogin}>
             <h1 className="text-danger">
-              <strong>Bhinneka Academy</strong>
+              <strong>Bhinneka Post</strong>
             </h1>
+
+            {isError && <p className="alert alert-danger text-center">{error.data}</p>}
 
             {/* Email */}
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -54,7 +56,7 @@ const Login = () => {
 
             {/* Submit */}
             <div className="d-grid gap-2">
-              <Button variant="danger" type="submit" size="md">
+              <Button variant="danger" type="submit" size="md" disabled={isLoading}>
                 Masuk
               </Button>
             </div>

@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { Container, Col, Row, Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-// import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import { useSignupUserMutation } from "../features/api/apiSlice";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [signupUser, { data }] = useSignupUserMutation();
+  const navigate = useNavigate();
+  const [signupUser, { isLoading, isError, error }] = useSignupUserMutation();
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    signupUser({ email, password });
+    signupUser({ email, password }).then(({ error }) => {
+      if (!error) {
+        navigate("/");
+      }
+    })
   };
-
-  if (data) {
-    console.log(data);
-  }
 
   return (
     <Container>
@@ -27,6 +27,8 @@ const SignUp = () => {
             <h1 className="text-danger">
               <strong>Buat Akun</strong>
             </h1>
+            
+            {isError && <p className="alert alert-danger text-center">{error.data}</p>}
 
             {/* Email */}
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -54,7 +56,7 @@ const SignUp = () => {
 
             {/* Submit */}
             <div className="d-grid gap-2">
-              <Button variant="danger" type="submit" size="md">
+              <Button variant="danger" type="submit" size="md" disabled={isLoading}>
                 Daftar
               </Button>
             </div>

@@ -9,7 +9,7 @@ import thunk from "redux-thunk";
 
 const reducers = combineReducers({
   user: userSlice,
-  post: postSlice,
+  posts: postSlice,
   [apiSlice.reducerPath]: apiSlice.reducer,
 });
 

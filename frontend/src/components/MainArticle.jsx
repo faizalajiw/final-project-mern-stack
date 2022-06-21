@@ -9,7 +9,7 @@ const MainArticle = ({ article }) => {
   return (
     <Row className="pb-4">
       <Col md={7} className="main-article__image-container">
-        <img src={image} alt="" style={{widht: "100%", maxHeight: "300", objectFit: "cover"}} />
+        <img src={image} alt="" style={{maxWidth: "100%", maxHeight: "300", objectFit: "cover"}} />
       </Col>
 
       <Col md={5}>

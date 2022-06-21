@@ -15,17 +15,12 @@ const Navbars = () => {
       }
     })
   }
-  
-  // const handleLogout = () => {
-  //   localStorage.removeItem("token");
-  //   window.location.reload();
-  // }
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
         <LinkContainer to="/">
-          <Navbar.Brand>Bhinneka Academy</Navbar.Brand>
+          <Navbar.Brand>Bhinneka Post</Navbar.Brand>
         </LinkContainer>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -47,7 +42,7 @@ const Navbars = () => {
                 id="basic-nav-dropdown"
               >
                 <LinkContainer to="/new-article">
-                  <NavDropdown.Item>Artikel Baru</NavDropdown.Item>
+                  <NavDropdown.Item>Buat Artikel</NavDropdown.Item>
                 </LinkContainer>
 
                 <LinkContainer to="/articles/me">

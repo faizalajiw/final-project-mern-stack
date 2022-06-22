@@ -19,8 +19,8 @@ const Navbars = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <LinkContainer to="/">
-          <Navbar.Brand>Garuda Post</Navbar.Brand>
+        <LinkContainer to="/" className="text-success">
+          <Navbar.Brand><strong>Garuda Post</strong></Navbar.Brand>
         </LinkContainer>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -29,11 +29,11 @@ const Navbars = () => {
             <LinkContainer to="/">
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/about">
+            {/* <LinkContainer to="/about">
               <Nav.Link>About</Nav.Link>
-            </LinkContainer>
+            </LinkContainer> */}
             <LinkContainer to="/login">
-              <Nav.Link className="btn btn-danger text-white">Login</Nav.Link>
+              <Nav.Link className="btn btn-success text-white">Login</Nav.Link>
             </LinkContainer>
 
             {user && (

@@ -24,7 +24,7 @@ const Login = () => {
       <Row>
         <Col md={6}>
           <Form className="login__form" onSubmit={handleLogin}>
-            <h1 className="text-danger">
+            <h1 className="text-success">
               <strong>Garuda Post</strong>
             </h1>
 
@@ -56,7 +56,7 @@ const Login = () => {
 
             {/* Submit */}
             <div className="d-grid gap-2">
-              <Button variant="danger" type="submit" size="md" disabled={isLoading}>
+              <Button variant="success" type="submit" size="md" disabled={isLoading}>
                 Masuk
               </Button>
             </div>

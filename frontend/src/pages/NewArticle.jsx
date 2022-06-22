@@ -116,13 +116,13 @@ const NewArticle = () => {
               // // apiKey="3ituox0mhf6744v1cssbp9py7w78zb1crdziktkpadi43sfu"
             />
 
-            <Form.Select>
+            {/* <Form.Select>
               <option>Pilih Kategori</option>
               <option value="movie">Movie Chill</option>
               <option value="bola">Sepak Bola</option>
               <option value="portfolio">Portofolio</option>
               <option value="others">Lainnya</option>
-            </Form.Select>
+            </Form.Select> */}
 
             <div>
               {!url && (

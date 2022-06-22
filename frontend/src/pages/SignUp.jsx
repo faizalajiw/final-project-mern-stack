@@ -24,7 +24,7 @@ const SignUp = () => {
       <Row>
         <Col md={6}>
           <Form className="signup__form" onSubmit={handleSignUp}>
-            <h1 className="text-danger">
+            <h1 className="text-success">
               <strong>Buat Akun</strong>
             </h1>
             
@@ -56,7 +56,7 @@ const SignUp = () => {
 
             {/* Submit */}
             <div className="d-grid gap-2">
-              <Button variant="danger" type="submit" size="md" disabled={isLoading}>
+              <Button variant="success" type="submit" size="md" disabled={isLoading}>
                 Daftar
               </Button>
             </div>

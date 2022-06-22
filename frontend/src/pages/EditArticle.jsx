@@ -88,13 +88,13 @@ function EditArticle() {
               toolbarClassName="toolbar"
             />
 
-            <Form.Select className="mb-4">
+            {/* <Form.Select className="mb-4">
               <option>Pilih Kategori</option>
               <option value="movie">Review Film</option>
               <option value="bola">Sepak Bola</option>
               <option value="portfolio">Portofolio</option>
               <option value="others">Lainnya</option>
-            </Form.Select>
+            </Form.Select> */}
 
             <Button variant="primary" type="submit">
               Update Artikel

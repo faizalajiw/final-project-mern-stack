@@ -25,7 +25,7 @@ const Login = () => {
         <Col md={6}>
           <Form className="login__form" onSubmit={handleLogin}>
             <h1 className="text-danger">
-              <strong>Bhinneka Post</strong>
+              <strong>Garuda Post</strong>
             </h1>
 
             {isError && <p className="alert alert-danger text-center">{error.data}</p>}

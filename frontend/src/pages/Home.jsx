@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <Container>
       <div className="banner">
-        <h1 className="banner__title">Bhinneka Post</h1>
+        <h1 className="banner__title">Garuda Post</h1>
       </div>
 
       <Row>

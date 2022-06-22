@@ -20,7 +20,7 @@ const Navbars = () => {
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
         <LinkContainer to="/">
-          <Navbar.Brand>Bhinneka Post</Navbar.Brand>
+          <Navbar.Brand>Garuda Post</Navbar.Brand>
         </LinkContainer>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

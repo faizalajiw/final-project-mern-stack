@@ -1,1 +1,1 @@
-# Final Project Mern Stack
+# Project MERN Stack

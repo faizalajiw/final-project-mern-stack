@@ -6,7 +6,7 @@
 * React Router Bootstrap [Link](https://www.npmjs.com/package/react-router-bootstrap)
 * Redux [Link](https://redux.js.org/introduction/getting-started)
 * Draft-js [Link](https://draftjs.org/)
-* TinyMCE [Link](https://www.tinymce.com/)
+* React Draft Wysiwyg [Link](https://www.npmjs.com/package/react-draft-wysiwyg)
 
 ## Cara Menggunakan
 
